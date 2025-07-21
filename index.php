@@ -112,25 +112,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php else: ?>
                     <?php foreach ($tasks as $index => $task): ?>
                         <li class="task-item">
-                            <form method="POST" style="flex-grow: 1;">
-                                <input type="hidden" name="toggle" value="<?= $index?>"> 
-                           
-                            <button type="submit" style="border: none; background: none; cursor: pointer; text-align: left; width: 100%;">
+                    
+                    <form method="POST" style="flex-grow: 1;">
+                        <input type="hidden" name="toggle" value="<?= $index?>">    
+                    <button type="submit" style="border: none; background: none; cursor: pointer; text-align: left; width: 100%;">
                         <span class="task <?php echo $task['done'] ? 'task-done': '' ?>">
                           <?= $index?> <?= $task['task'] ?>
                         </span>
                     </button>
-                     </form>
+                    </form>
 
-                     <form method="POST">
-                <input type="hidden" name="delete" value="<?= $index?>">
-                <button type="submit" class="button button-outline" style="margin-left: 10px;">Delete</button>
+                    <form method="POST">
+                        <input type="hidden" name="delete" value="<?= $index?>">
+                    <button type="submit" class="button button-outline" style="margin-left: 10px;">Delete</button>
                      </form>
                         </li>
                         <?php endforeach; ?>
                 <?php endif; ?>         
             </ul>
-
         </div>
     </div>
 </body>
